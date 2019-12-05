@@ -1,0 +1,24 @@
+$text-Pri-color:#000;
+$text-sec-color:#4A4A4A;
+$hover-color:#7DC242;
+$bg-color : #fafafa;
+$font-size : 12px;
+$ribbon-bg : #000;
+$txt-white : #fff;
+$bread-color : #4A4A4A;
+$footer-bg : #000;
+
+// transition: all .4s ease;
+// -webkit-transition: all .4s ease;
+// -o-transition: all .4s ease;
+// -moz-transition: all .4s ease; 
+
+@mixin getHover($color) {
+    transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    text-shadow: 5px 5px 2px rgba(255,255,255,0);
+    color: $color;
+    cursor: pointer;
+}

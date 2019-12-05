@@ -1,0 +1,113 @@
+// variables
+@import './../../../../assets/scss/variables';
+
+@mixin align-center {
+    align-items: center;
+}
+
+header {
+    .top-ribbon {
+        background: $ribbon-bg;
+        color: $txt-white;
+        p{
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            line-height: 15px;
+            padding: 10px 0px;
+        }
+    }
+    .header-wrapper {
+        border-bottom: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+        .menu-grid-container {
+            @include align-center;  
+            .left-section {
+                grid-area: leftMenu;
+                .navbar {
+                    .navbar-btn {
+                        display: none;
+                        img {
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    .navbar-list {
+                        ul {
+                            display: flex;
+                            li {
+                                a {
+                                    text-transform: uppercase;
+                                    font-weight: 700;
+                                    letter-spacing: 2px;
+                                    text-shadow: 0 0 0 $text-Pri-color;
+                                    &:hover,&:active {
+                                        @include getHover($hover-color);
+                                    }
+                                }
+                                &:not(:last-child){
+                                    margin-right: 40px;
+                                } 
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            .middle-section {
+                grid-area: middleMenu;
+                justify-self: center;
+            }
+            .right-section {
+                grid-area: rightMenu;
+                justify-self: end;
+                ul {
+                    display: flex;
+                    align-items: center;
+                    li {
+                        &:not(:last-child){
+                            margin-right: 20px;
+                        } 
+                        a {
+                            text-transform: uppercase;
+                            font-weight: 700;
+                            text-shadow: 0 0 0 $text-Pri-color;
+                            &:hover,&:active {
+                                @include getHover($hover-color);
+                            }
+                        }
+                        &:first-child{
+                            margin-right: 40px;
+                        } 
+                        &:first-child {
+                            a {
+                                text-transform: uppercase;
+                                letter-spacing: 2px;
+                                text-align: center;
+                                line-height: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+            margin: 0px 50px;
+            min-height: 90px;
+            display: grid;
+            grid-template-areas: 'leftMenu middleMenu rightMenu';
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+
+@media only screen and (max-width: 767px) { 
+    header {
+        .header-wrapper {
+            .menu-grid-container { 
+                margin : 0 20px;
+            }
+        }
+    }
+}

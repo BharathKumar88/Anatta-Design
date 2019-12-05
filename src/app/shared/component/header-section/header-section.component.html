@@ -1,0 +1,75 @@
+<header>
+    <!--top ribbon-->
+    <div class="top-ribbon">
+        <p>free us shipping and return</p>
+    </div>
+    <div class="header-wrapper">
+        <div class="menu-grid-container">
+            <div class="left-section">
+                <nav class="navbar">
+                    <div class="navbar-btn show-mb" (click)="onPushToggleSilder()">
+                        <img [src]="menuBtn" />
+                    </div>
+                    <div class="navbar-list hide-mb">
+                        <ul>
+                            <li>
+                                <a>men</a>
+                            </li>
+                            <li>
+                                <a>women</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="middle-section">
+                <img [src]="logo" alt="logo"/>
+            </div>
+            <div class="right-section">
+                <ul>
+                    <li class="hide-mb">
+                        <a>about</a>
+                    </li>
+                    <li>
+                        <a><img [src]="user" alt="user"/></a>
+                    </li>
+                    <li>
+                        <a><img [src]="bag" alt="bag"/></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+ <!--silder start-->
+ <div class="menu-slider-modal" [ngClass]="{'show': sliderPushClass}">
+        <!-- <button type="button" class="btn btn-slider" (click)="onPushToggleSilder()">
+            <span class="menu-btn">
+                menu_list
+           </span>
+        </button> -->
+        <!--silder content-->
+        <div class="menu-slider-content" [ngClass]="{'show': sliderPushClass}">
+            <div class="menu-header">
+            <h4 class="heading"><img [src]="logo" alt="logo"/></h4>
+            </div>
+            <div class="menu-wrapper">
+                <div class="menu-list">
+                    <ul>
+                        <li>
+                            <a (click)="onPushToggleSilder()">
+                                <img [src]="menImg"/><span>Men</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="onPushToggleSilder()">
+                                <img [src]="womenImg"/><span>Women</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+<div class="menu-popup-overlay" [ngClass]="{'show': sliderPushClass}" (click)="onPushToggleSilder()"></div>   

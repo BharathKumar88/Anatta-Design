@@ -1,0 +1,121 @@
+<div class="pro-container">
+    <div class="pro-wrapper-grid">
+       <div class="pro-details">
+            <div class="pro-title">
+                <h4>{{productDetails?.name}}</h4>
+                <p>
+                    $ {{productDetails?.price}}
+                </p>
+            </div>
+            <div class="pro-sub-title">
+                <p class="desc">{{productDetails?.description}}</p>
+                <p class="rating">
+                <i *ngFor="let s of stars">
+                        <img [src]="star">
+                    </i>
+                    <i>
+                        <img [src]="fullStar">
+                    </i>154 Rating
+                </p>
+            </div>
+            <div class="size-chart">
+                <div class="tab-btn">
+                    <p (click)="onToggleTab('men')" [ngClass]="tabToggle  == 'men' ? 'active': ''">men</p>
+                    <p (click)="onToggleTab('women')" [ngClass]="tabToggle  == 'women' ? 'active': ''">women</p>
+                </div>
+                <div class="color-section">
+                    <p>select color</p>
+                    <div class="color-wrapper">
+                        <div class="colors" *ngFor="let code of styleCode;let i=index" [ngClass]="{'active': selectedCode == i}">
+                            <div class="color-code" [ngStyle]="{'background-color': code}" (click)="onSelectStyleCode(i)"></div>
+                        </div>
+                        <div class="colors" [ngClass]="{'active': selectedCode == 22}">
+                            <div class="color-code code-multi" (click)="onSelectStyleCode(22)"></div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="size">
+                    <p><span>select size</span><span>size & fite guide</span></p>
+                    <div class="size-box-wrapper">
+                        <div class="size-box" *ngFor="let size of sizeList; let i = index" [ngClass]="{'notAvailable':!size.available }">
+                            <span [ngClass]="{'active': selectedSize == i}" (click)="onSelectStyleSize(i,size.available)">
+                                {{size.size}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-btn">
+                    add to bag
+                </div>
+            </div>
+            <div class="shipping-label">
+                <p>Worldwide Shipping + Free Returns</p>
+            </div>
+       </div>
+       <div class="pro-img-container">
+           <div class="pro-main-img">
+                <img [src]="proImage">
+           </div>
+           <div class="pro-thambnail-imgs">
+                <div ng2-carouselamos [items]="prodimg" [$item]="prodImgThumbnail" [$prev]="prevProdImg" [$next]="nextProImg"
+                (onSelectedItem)="selectedItem = $event?.item;selectedProId=$event.item.id;selectedIndex = $event?.index;getProductImage($event.item)" ></div>
+           </div>
+            <ng-template #prevProdImg>
+                <img class="arrowLeft" [src]="arrowLeft">
+            </ng-template>
+            
+            <ng-template #nextProImg>
+                    <img class="arrowRight" [src]="arrowRight">
+            </ng-template>
+            
+            <ng-template let-item let-i="index" #prodImgThumbnail>
+                <div class="thumbnail" [ngClass]="{'active':selectedProId==item?.id}">
+                    <img [src]="item?.url">
+                </div>
+            </ng-template>
+       </div> 
+    </div>
+
+    
+</div>
+<div class="favProd-container">
+        <div class="favProd-wrapper">
+            <h4>you'll also like</h4>
+            <div class="fav-slider">
+                <div class="hide-mb" ng2-carouselamos [items]="favItems" [$item]="favImgThumbnail" [$prev]="prevFavImg" [$next]="nextFavImg"
+                    (onSelectedItem)="selectedItem = $event?.item;selectedIndex = $event?.index;" ></div>
+                    <div class="show-mb mobile-prod">
+                        <div class="product-cont">
+                            <div class="product-wrapper" *ngFor="let item of favItems;">
+                                <div class="product-image">
+                                    <!-- <div class="desc" *ngIf="item?.desc">
+                                        {{item?.desc}}
+                                    </div> -->
+                                    <img [src]="item?.url">
+                                </div>
+                                <div class="product-text">
+                                    <span class="name">{{item?.name}}</span>
+                                    <span class="price">${{item?.price}}</span>
+                                </div>
+                            </div>     
+                        </div>
+                    </div>
+            </div>
+            <ng-template #prevFavImg>
+                    <img class="arrowLeft" [src]="arrowLeft">
+                </ng-template>
+                
+                <ng-template #nextFavImg>
+                        <img class="arrowRight" [src]="arrowRight">
+                </ng-template>
+                
+                <ng-template let-item let-i="index" #favImgThumbnail>
+                    <div class="thumbnail" >
+                        <img [src]="item?.url">
+                    </div>
+                </ng-template>
+        </div>
+        
+    </div>
+

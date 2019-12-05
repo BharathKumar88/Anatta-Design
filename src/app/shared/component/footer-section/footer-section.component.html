@@ -1,0 +1,67 @@
+<footer>
+    <div class="strip">
+        <img [src]="strip" alt=""/>
+    </div>
+    <div class="footer-container">
+        <div class="footer-menu-grid">
+            <div class="footer-list">
+                <h4>men</h4>
+                <ul>
+                    <li *ngFor="let item of menWomen"><a>{{item.name}}</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h4>women</h4>
+                <ul>
+                    <li *ngFor="let item of menWomen"><a>{{item.name}}</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h4>support</h4>
+                <ul>
+                    <li *ngFor="let item of support"><a>{{item.name}}</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h4>about</h4>
+                <ul>
+                    <li *ngFor="let item of about"><a>{{item.name}}</a></li>
+                </ul>
+            </div>
+            <div class="footer-list">
+                <h4>popup stores</h4>
+                <ul>
+                    <li *ngFor="let item of stores"><a>{{item.name}}</a></li>
+                </ul>
+                <div class="store-search-container">
+                    <input type="text" placeholder="Find your sneakers here"/>
+                    <img [src]="searchImg"/>
+                </div>
+            </div>
+            <div class="footer-list">
+                    <h4>newsletter</h4>
+                    <div class="email-btn">
+                        <input type="text" placeholder="Enter email"/>
+                        <button type="button">join us</button>
+                    </div>
+                    <div class="social-media">
+                        <ul>
+                            <li>
+                                <a>
+                                    <img [src]="instagram" alt="instagram"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <img [src]="fb" alt="facebook"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        <div class="copy-right">
+            Copyright &copy; 2019 CARIUMA. All Rights Reserved. Terms of Use | Privacy Policy 
+        </div>
+    </div>
+</footer>
